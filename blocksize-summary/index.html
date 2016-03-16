@@ -242,30 +242,6 @@ function weightedAverage(range) {
 
 <hr/>
 
-<h2 id="conclusion">Conclusion</h2>
-
-<p>In overview of the above comparisons:</p>
-<ul>
-  <li>The exponential moving average formula has an advantage that it can be calculated at an interval of every block quickly as it's based only on the previous blocks average and the current block. A block index could keep record of these values for consensus purposes. The sequential nature of validiting blocks in the chain goes will with this method of calculation.</li>
-  <li>The moving median in comparison with moving average lowers the influence of large or small blocks anomalies. However increasing the sample size for both median and average calculations has an similar effect. The average tends to produce a smoother graph.</li>
-  <li>The moving average, exponential moving average and weighted moving average are roughly indistinguishable. In the goal of having a property of being difficult or slow to influence, the properties of an average and exponential moving average are preferred, as the weighted average will give more signifigance to more recent blocks.</li>
-  <li>Recalculating the maximum block size in larger intervals would also make increasing the size require more signifigant amount of time. Such that if the maximum block size was only recalculated once per year, the maximum rate that the blocksize could grow would be to multiplied once per year. So long as the maximum block sizes are hardly ever reached, sudden changes in the size shouldn't be noticable in confirmation times. However the same could be achieved with a smaller multiplier, at more frequent recaculaton rate. And a smoother transaction in the maximum size guarantee that there wouldn't be any sudden changes that could lead to unexpected behavior.</li>
-  <li>Sample sizes that are larger than the mining difficulty adjustments have the benefit of diminishing single miner influence. A miner that suddenly were able to achieve 51% of the total hash power because of a rapid advance in hashing technology would still only represent a small percentage of the calculated maximum block size. This is because the difficulty would be increased in that time period.</li>
-</ul>
-
-<p>I think we should:</p>
-<ul>
-  <li>Prefer recalculations of the maximum block size at a more frequent rate for smooth and expected behavior.</li>
-  <li>Have a sample size that is several times the difficulty adjustment period to produce robust maximum size that requires significant hashing power and transaction volume to influence.</li>
-  <li>Have a multiplication factor that historically would not have hindered the growth of the network in a major way.</li>
-</ul>
-
-<hr/>
-
-<p>For example, here are the maximum block sizes calculated from historical blocks with a 1 year (52,560) exponential moving average recalculated for every block, and 100,000 bytes added to the maximum.</p>
-
-<img src="static/images/conclusion-ema-52560-x2-1block.png" width=700/>
-
 </div>
 </body>
 </html>
